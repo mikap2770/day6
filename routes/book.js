@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const book = require('../models/book_model');
 
+
 //? joten parametri vapaavalintaine kyllä/ei. Jos ei oo niin pakko antaa id.
 router.get('/:id?',
  function(request, response) {

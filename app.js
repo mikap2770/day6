@@ -8,6 +8,9 @@ var customerRouter = require('./routes/customer');
 
 var app = express();
 
+const basicAuth = require('express-basic-auth');
+app.use(basicAuth({users: { 'admin': '1234' }}))
+
 const helmet = require('helmet');
 const cors = require('cors');
 
