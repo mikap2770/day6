@@ -2,7 +2,7 @@ const db = require('../database');
 
 const borrow = {
   getById: function(id, callback) {
-    return db.query('select * from borrow where id_borrow=?', [id], callback);
+    return db.query('select DATE_FORMAT(borrow_date,"%d.%m.%Y"),select DATE_FORMAT(return_date,"%d.%m.%Y"),id_book, id_customer from borrow where id_borrow=?', [id], callback);
   },
   getAll: function(callback) {
     return db.query('select * from borrow', callback);
