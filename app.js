@@ -11,9 +11,11 @@ var app = express();
 const basicAuth = require('express-basic-auth');
 app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ))
 //app.use(basicAuth({users: { 'admin': '1234' }}))
+const dotenv = require('dotenv');
+dotenv.config();
 
 function myAuthorizer(username, password, cb) {
-    if (username==='admin' && password === 'testi'){
+    if (username===process.env.auth_user && password === process.env.auth_pass){
         return cb(null, true)
     }
     else
